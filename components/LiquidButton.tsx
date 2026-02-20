@@ -22,7 +22,7 @@ const LiquidButton: React.FC<LiquidButtonProps> = ({ children, onClick, classNam
             className={`relative overflow-hidden px-8 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all duration-300 group shadow-lg hover:shadow-red-600/30 ${className}`}
         >
             {/* Background and Liquid Effect */}
-            <span className="absolute inset-0 bg-gray-900 dark:bg-zinc-800 transition-colors duration-300 group-hover:bg-red-700"></span>
+            <span className="absolute inset-0 bg-gray-900 transition-colors duration-300 group-hover:bg-red-700"></span>
 
             <AnimatePresence>
                 {isHovered && (

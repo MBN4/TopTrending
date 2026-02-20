@@ -3,7 +3,7 @@ export const FOOTER_CONTENT = {
     socialLinks: [
         { platform: 'Facebook', url: 'https://www.facebook.com/toptrendingms', icon: 'Facebook' },
         { platform: 'Instagram', url: 'https://www.instagram.com/toptrendingms/', icon: 'Instagram' },
-        { platform: 'Linkedin', url: '#', icon: 'Linkedin' },
+        { platform: 'Linkedin', url: 'https://www.linkedin.com/in/top-trending-99893b327/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BRQjlo5kdSGmS%2B2wc10XoxA%3D%3D', icon: 'Linkedin' },
     ],
     navigation: [
         { label: 'Home', href: '#home' },

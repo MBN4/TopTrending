@@ -13,7 +13,7 @@ const iconMap: Record<string, any> = {
 
 const Features: React.FC = () => {
   return (
-    <section id="services" className="py-24 bg-white dark:bg-zinc-950 transition-colors duration-300">
+    <section id="services" className="py-24 bg-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <motion.h2
@@ -29,7 +29,7 @@ const Features: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-16"
+            className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-16"
           >
             Empowering Your Business <br />with <span className="text-red-600 underline decoration-red-600/20">Market Authority</span>
           </motion.h3>
@@ -45,13 +45,13 @@ const Features: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 hover:border-red-100 dark:hover:border-red-600/30 hover:shadow-2xl transition-all group"
+                className="p-8 rounded-2xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all group"
               >
-                <div className="w-14 h-14 bg-red-50 dark:bg-red-900/20 text-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                <div className="w-14 h-14 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
                   <Icon size={30} />
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h4>
-                <p className="text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
+                <h4 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h4>
+                <p className="text-gray-500 font-medium leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>

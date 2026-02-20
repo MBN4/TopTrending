@@ -5,12 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { NAV_ITEMS } from '../data/navbar';
 import LiquidButton from './LiquidButton';
 
-interface NavbarProps {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -67,20 +62,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           </div>
 
           <div className="flex items-center space-x-2 md:space-x-4">
-            {/* Theme Toggle - Always Visible */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-zinc-800 transition-colors relative overflow-hidden group"
-              aria-label="Toggle Theme"
-            >
-              <motion.div
-                initial={false}
-                animate={{ rotate: theme === 'dark' ? 180 : 0 }}
-                className="text-zinc-300 group-hover:text-red-600"
-              >
-                {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
-              </motion.div>
-            </button>
 
             {/* CTA Button - Visible on MD and up */}
             <LiquidButton

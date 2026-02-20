@@ -13,29 +13,9 @@ import LiquidButton from './components/LiquidButton';
 import { CTA_CONTENT } from './data/cta';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 transition-colors duration-300 font-sans selection:bg-red-600 selection:text-white">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    <div className="min-h-screen bg-white transition-colors duration-300 font-sans selection:bg-red-600 selection:text-white">
+      <Navbar />
 
       <main>
         <Hero />

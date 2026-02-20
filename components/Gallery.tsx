@@ -11,14 +11,14 @@ const Gallery: React.FC = () => {
     : GALLERY_IMAGES.filter(img => img.category === filter);
 
   return (
-    <section id="gallery" className="py-24 bg-gray-50 dark:bg-zinc-900 transition-colors duration-300">
+    <section id="gallery" className="py-24 bg-gray-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tighter mb-2">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tighter mb-2">
               TRENDS IN <span className="text-red-600">ACTION</span>
             </h2>
-            <p className="text-gray-500 dark:text-zinc-400 font-medium">Visualizing our latest success stories and innovations.</p>
+            <p className="text-gray-500 font-medium">Visualizing our latest success stories and innovations.</p>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -26,7 +26,7 @@ const Gallery: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${filter === cat ? 'bg-red-600 text-white shadow-lg' : 'bg-white dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700'}`}
+                className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${filter === cat ? 'bg-red-600 text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
               >
                 {cat}
               </button>
@@ -50,7 +50,7 @@ const Gallery: React.FC = () => {
                   duration: 0.5,
                   ease: [0.19, 1, 0.22, 1]
                 }}
-                className="relative group overflow-hidden rounded-3xl bg-white dark:bg-zinc-800 shadow-xl aspect-[4/5]"
+                className="relative group overflow-hidden rounded-3xl bg-white shadow-xl aspect-[4/5]"
               >
                 <img
                   src={image.url}

@@ -26,11 +26,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.dark .glass {
-  background: rgba(24, 24, 27, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .glass-dark {
   background: rgba(24, 24, 27, 0.7);
   backdrop-filter: blur(12px);
@@ -64,10 +59,6 @@ body {
   background: #f1f1f1;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #18181b;
-}
-
 ::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 10px;
@@ -79,20 +70,8 @@ body {
   background: #ef4444;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #ef4444;
-}
-
 /* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #ccc #f1f1f1;
-}
-
-.dark * {
-  scrollbar-color: #3f3f46 #18181b;
 }
