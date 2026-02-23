@@ -62,7 +62,7 @@ const About: React.FC = () => {
                         <span className="inline-block py-1 px-3 rounded-full bg-red-100 text-red-600 text-xs font-bold uppercase tracking-widest mb-4">
                             {ABOUT_CONTENT.badge}
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter text-gray-900">
+                        <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter text-gray-900 uppercase">
                             {ABOUT_CONTENT.title.main} <span className="text-red-600">{ABOUT_CONTENT.title.highlight}</span>{ABOUT_CONTENT.title.suffix}
                         </h2>
                         <p className="text-lg text-gray-600 mb-8 leading-relaxed">

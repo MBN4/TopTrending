@@ -15,10 +15,10 @@ const Gallery: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tighter mb-2">
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tighter mb-2 uppercase">
               TRENDS IN <span className="text-red-600">ACTION</span>
             </h2>
-            <p className="text-gray-500 font-medium">Visualizing our latest success stories and innovations.</p>
+            <p className="text-gray-500 font-medium text-sm md:text-base">Visualizing our latest success stories and innovations.</p>
           </div>
 
           <div className="flex flex-wrap gap-2">

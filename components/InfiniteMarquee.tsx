@@ -7,7 +7,7 @@ const InfiniteMarquee: React.FC = () => {
   return (
     <section className="py-16 bg-white overflow-hidden border-y border-gray-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
-        <h3 className="text-[10px] md:text-xs font-black text-gray-400 uppercase tracking-[0.4em]">
+        <h3 className="text-[10px] md:text-xs font-black text-gray-400 uppercase tracking-[0.4em] px-4">
           TRUSTED BY GLOBAL INNOVATORS
         </h3>
       </div>

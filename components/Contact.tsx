@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
 
     // WhatsApp Integration
     const phoneNumber = CONTACT_INFO.whatsapp;
-    const whatsappMessage = `*New Lead from TopTreandings*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Message:* ${formData.message}`;
+    const whatsappMessage = `*New Lead from TopTrendings*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Message:* ${formData.message}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
     // Gmail Integration (To be implemented by the user)

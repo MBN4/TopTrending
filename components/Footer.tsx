@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Facebook, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { FOOTER_CONTENT } from '../data/footer';
 
 const iconMap: Record<string, any> = {
@@ -9,19 +10,20 @@ const iconMap: Record<string, any> = {
   Linkedin,
   ArrowUp,
 };
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <a href="#" className="flex items-center mb-6">
+            <Link to="/" className="flex items-center mb-6">
               <img
-                src="assets/images/logo.png"
-                alt="TopTreandings Logo"
+                src="/assets/images/logo.png"
+                alt="TopTrending Logo"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
-            </a>
+            </Link>
             <p className="text-gray-400 font-medium mb-8 leading-relaxed">
               {FOOTER_CONTENT.description}
             </p>
@@ -29,7 +31,7 @@ const Footer: React.FC = () => {
               {FOOTER_CONTENT.socialLinks.map((link, idx) => {
                 const Icon = iconMap[link.icon];
                 return (
-                  <a key={idx} target="_blank" href={link.url} className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all">
+                  <a key={idx} target="_blank" rel="noopener noreferrer" href={link.url} className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all">
                     <Icon size={18} />
                   </a>
                 );
@@ -41,7 +43,11 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-6 text-white uppercase tracking-widest">Navigation</h4>
             <ul className="space-y-4">
               {FOOTER_CONTENT.navigation.map((item, idx) => (
-                <li key={idx}><a href={item.href} className="text-gray-400 hover:text-red-500 transition-colors">{item.label}</a></li>
+                <li key={idx}>
+                  <Link to={item.href} className="text-gray-400 hover:text-red-500 transition-colors uppercase text-xs font-bold tracking-widest">
+                    {item.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

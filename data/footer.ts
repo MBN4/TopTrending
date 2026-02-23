@@ -6,10 +6,10 @@ export const FOOTER_CONTENT = {
         { platform: 'Linkedin', url: 'https://www.linkedin.com/in/top-trending-99893b327/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BRQjlo5kdSGmS%2B2wc10XoxA%3D%3D', icon: 'Linkedin' },
     ],
     navigation: [
-        { label: 'Home', href: '#home' },
-        { label: 'Services', href: '#services' },
-        { label: 'Gallery', href: '#gallery' },
-        { label: 'About Us', href: '#about' },
+        { label: 'Home', href: '/' },
+        { label: 'Gallery', href: '/#gallery' },
+        { label: 'About Us', href: '/#about' },
+        { label: 'Contact', href: '/#contact' },
     ],
     industryLinks: [
         { label: 'Market Analysis', href: '#' },
@@ -20,5 +20,5 @@ export const FOOTER_CONTENT = {
     newsletter: {
         text: "Get the weekly trend report directly in your inbox."
     },
-    copyright: "© 2024 TopTreandings. All rights reserved. Designed for Premium Growth."
+    copyright: "© 2024 TopTrendings. All rights reserved. Designed for Premium Growth."
 };
