@@ -18,9 +18,9 @@ const Hero: React.FC = () => {
 
   return (
     // FIX: Increased padding-top (pt-32) so the fixed navbar doesn't cover the heading
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center pt-32 pb-12 md:pt-40 lg:pt-0 overflow-hidden bg-white"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-32 pb-12 md:pt-40 lg:pt-32 overflow-hidden bg-white"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-red-50 -skew-x-12 transform translate-x-1/2 z-0 hidden lg:block"></div>
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
             <span className="text-red-600">{HERO_CONTENT.title.highlight}</span> <br />
             {HERO_CONTENT.title.suffix}
           </h1>
-          
+
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg font-medium leading-relaxed">
             {HERO_CONTENT.description}
           </p>
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
               className="w-full h-auto object-cover"
             />
           </div>
-          
+
           {/* Stats Badge - Hidden on very small screens to avoid clutter */}
           <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-2xl z-20 hidden md:block border-l-4 border-red-600">
             <div className="text-4xl font-black text-red-600">{HERO_CONTENT.stats.value}</div>

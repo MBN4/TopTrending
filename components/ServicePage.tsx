@@ -43,7 +43,7 @@ const ServicePage: React.FC = () => {
     return (
         <div className="bg-white">
             {/* Huge Hero Banner */}
-            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden pt-24 lg:pt-32">
                 <div className="absolute inset-0 z-0">
                     <img
                         src={service.bannerImage}
