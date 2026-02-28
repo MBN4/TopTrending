@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, useSpring, useTransform, useInView } from 'framer-motion';
 import { Target, Lightbulb, Users, Award } from 'lucide-react';
@@ -43,7 +42,6 @@ const AnimatedCounter: React.FC<{ value: number; suffix?: string }> = ({ value, 
 const About: React.FC = () => {
     return (
         <section id="about" className="py-24 relative overflow-hidden bg-white transition-colors duration-300">
-            {/* Background Decorative Elements */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
                 <div className="absolute top-20 left-10 w-64 h-64 bg-red-600 rounded-full blur-[120px]"></div>
                 <div className="absolute bottom-20 right-10 w-64 h-64 bg-blue-600 rounded-full blur-[120px]"></div>
@@ -51,8 +49,6 @@ const About: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Left Column: Text Content */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -89,14 +85,11 @@ const About: React.FC = () => {
                             ))}
                         </div>
 
-                        <LiquidButton
-                            className="bg-gray-900 !text-white"
-                        >
+                        <LiquidButton className="bg-gray-900 !text-white">
                             Learn More About Us
                         </LiquidButton>
                     </motion.div>
 
-                    {/* Right Column: Interactive Visuals */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -129,7 +122,6 @@ const About: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Floating Badge */}
                         <motion.div
                             animate={{ y: [0, -20, 0] }}
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
@@ -144,20 +136,48 @@ const About: React.FC = () => {
                 </div>
             </div>
 
-            {/* Vision & Mission Row */}
-            <div className="max-w-7xl mx-auto px-4 mt-24">
+            <div className="max-w-7xl mx-auto px-4 mt-32">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {ABOUT_CONTENT.pillars.map((item, i) => {
                         const Icon = iconMap[item.icon];
+                        const number = (i + 1).toString().padStart(2, '0');
                         return (
                             <motion.div
                                 key={i}
-                                whileHover={{ y: -10, backgroundColor: 'rgba(239, 68, 68, 0.05)' }}
-                                className="p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ 
+                                    y: -15, 
+                                    backgroundColor: 'rgba(239, 68, 68, 0.03)',
+                                    borderColor: 'rgba(239, 68, 68, 0.2)'
+                                }}
+                                transition={{ 
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20
+                                }}
+                                viewport={{ once: true }}
+                                className="p-10 rounded-[40px] border border-transparent transition-all duration-300 cursor-default flex flex-col group"
                             >
-                                <Icon className="w-10 h-10 text-red-600 mb-6" />
-                                <h3 className="text-xl font-black mb-4 text-gray-900 uppercase tracking-tight">{item.title}</h3>
-                                <p className="text-gray-600 font-medium">{item.desc}</p>
+                                <div className="w-16 h-16 bg-[#ff5e5e] rounded-full flex items-center justify-center text-white mb-10 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-300">
+                                    <Icon size={28} />
+                                </div>
+
+                                <div className="flex items-center gap-4 mb-6">
+                                    <span 
+                                        className="text-5xl font-bold text-transparent select-none opacity-40 group-hover:opacity-100 transition-opacity duration-300"
+                                        style={{ WebkitTextStroke: '1px #e5e7eb' }}
+                                    >
+                                        {number}
+                                    </span>
+                                    <h3 className="text-2xl font-black text-gray-900 tracking-tight uppercase">
+                                        {item.title}
+                                    </h3>
+                                </div>
+
+                                <p className="text-gray-600 font-medium leading-relaxed text-lg">
+                                    {item.desc}
+                                </p>
                             </motion.div>
                         );
                     })}

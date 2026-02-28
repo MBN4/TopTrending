@@ -17,76 +17,85 @@ const Hero: React.FC = () => {
   };
 
   return (
-    // FIX: Increased padding-top (pt-32) so the fixed navbar doesn't cover the heading
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-32 pb-12 md:pt-40 lg:pt-32 overflow-hidden bg-white"
+      className="relative min-h-screen flex items-start pt-40 pb-12 md:pt-48 lg:pt-56 overflow-hidden bg-white"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-red-50 -skew-x-12 transform translate-x-1/2 z-0 hidden lg:block"></div>
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-red-50 -skew-x-12 transform translate-x-1/3 z-0 hidden lg:block"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="flex flex-col"
         >
-          {/* Headline - Adjusted leading for better readability on mobile */}
-          <h1 className="text-5xl md:text-8xl font-black text-gray-900 leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[58px] font-black text-[#0f172a] leading-[1.1] tracking-tight mb-6 uppercase">
             {HERO_CONTENT.title.main} <br />
-            <span className="text-red-600">{HERO_CONTENT.title.highlight}</span> <br />
+            <span className="text-[#e11d48]">{HERO_CONTENT.title.highlight}</span> <br />
             {HERO_CONTENT.title.suffix}
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg font-medium leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 mb-10 max-w-lg font-medium leading-relaxed">
             {HERO_CONTENT.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <LiquidButton
               onClick={() => scrollToSection('#services')}
-              className="bg-red-600 text-white"
+              className="bg-[#0f172a] text-white px-8 py-4 flex items-center justify-center gap-3 group"
             >
-              Discover Services
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              DISCOVER SERVICES
+              <motion.span
+                animate={{ x: [0, 6, 0] }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 1.2, 
+                  ease: "easeInOut" 
+                }}
+              >
+                <ArrowRight size={20} />
+              </motion.span>
             </LiquidButton>
+            
             <LiquidButton
               onClick={() => scrollToSection('#about')}
-              className="bg-white border-2 border-gray-200 !text-gray-900"
+              className="bg-white border-2 border-gray-200 text-[#0f172a] px-8 py-4 flex items-center justify-center"
             >
-              Our Process
+              OUR PROCESS
             </LiquidButton>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative mt-12 lg:mt-0"
         >
-          {/* Hero Image Container */}
-          <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+          <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
             <img
               src={HERO_CONTENT.image}
-              alt="TopTrending Team Working"
+              alt="Team collaboration"
               className="w-full h-auto object-cover"
             />
           </div>
 
-          {/* Stats Badge - Hidden on very small screens to avoid clutter */}
-          <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-2xl z-20 hidden md:block border-l-4 border-red-600">
-            <div className="text-4xl font-black text-red-600">{HERO_CONTENT.stats.value}</div>
-            <div className="text-sm font-bold text-gray-500 uppercase tracking-widest">{HERO_CONTENT.stats.label}</div>
+          <div className="absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-6 bg-white p-4 sm:p-6 rounded-xl shadow-2xl z-20 border-l-[5px] border-[#e11d48]">
+            <div className="text-3xl sm:text-4xl font-black text-[#e11d48] leading-none mb-1">
+              {HERO_CONTENT.stats.value}
+            </div>
+            <div className="text-[9px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+              {HERO_CONTENT.stats.label}
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Vertical Tagline */}
-      <div className="absolute bottom-10 left-10 hidden xl:block">
-        <div className="rotate-90 origin-left text-[10px] font-bold tracking-[0.5em] text-gray-300 uppercase">
+      <div className="absolute bottom-12 left-8 hidden xl:block">
+        <div className="rotate-90 origin-left text-[11px] font-black tracking-[0.6em] text-gray-200 uppercase whitespace-nowrap">
           {HERO_CONTENT.tagline}
         </div>
       </div>

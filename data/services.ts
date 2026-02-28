@@ -10,165 +10,120 @@ export interface ServiceDetail {
 
 export const SERVICES_DATA: ServiceDetail[] = [
     {
-        slug: 'corporate-branding',
-        title: 'Corporate Branding',
-        tagline: 'Crafting Identities That Command Respect.',
-        description: 'We go beyond logos. We build comprehensive brand ecosystems that resonate with your audience and stand the test of time.',
-        bannerImage: 'https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=1600',
+        slug: 'mobile-apps',
+        title: 'Mobile Applications',
+        tagline: 'Pocket-Sized Powerhouses.',
+        description: 'We develop high-performance iOS and Android applications that provide seamless user experiences and robust functionality.',
+        bannerImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1600',
         features: [
-            { title: 'Identity Design', desc: 'Logos, color palettes, and typography.', icon: 'Palette' },
-            { title: 'Brand Strategy', desc: 'Positioning and voice development.', icon: 'Target' },
-            { title: 'Brand Guidelines', desc: 'Ensuring consistency across all touchpoints.', icon: 'BookOpen' }
+            { title: 'iOS & Android', desc: 'Native and cross-platform builds.', icon: 'Smartphone' },
+            { title: 'UI/UX Design', desc: 'Intuitive mobile interfaces.', icon: 'Palette' },
+            { title: 'App Store Optimization', desc: 'Visibility in the marketplace.', icon: 'Target' }
         ],
-        sections: [
-            {
-                title: 'Storytelling Through Design',
-                content: 'Your brand is a story. We help you tell it through visual excellence and strategic positioning. Our process involves deep market research to ensure your brand stands out in a crowded marketplace.'
-            }
-        ]
+        sections: [{ title: 'Mobile First Future', content: 'In an increasingly mobile world, your app is the direct link to your customers. We ensure it is fast, secure, and engaging.' }]
     },
     {
-        slug: 'packing-pos-material',
-        title: 'Packing & POS Material',
-        tagline: 'Packaging That Sells Itself.',
-        description: 'From box design to point-of-sale displays, we create physical touchpoints that drive conversion.',
-        bannerImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600',
-        features: [
-            { title: 'Product Packaging', desc: 'Innovative and sustainable box designs.', icon: 'Package' },
-            { title: 'POS Displays', desc: 'Eye-catching in-store marketing materials.', icon: 'ShoppingBag' },
-            { title: 'Print Production', desc: 'High-quality finishes and materials.', icon: 'Printer' }
-        ],
-        sections: [
-            {
-                title: 'Physical Brilliance',
-                content: 'In the digital age, physical packaging is more important than ever. We design packaging that creates an unboxing experience your customers will remember.'
-            }
-        ]
-    },
-    {
-        slug: 'print-media',
-        title: 'Print Media',
-        tagline: 'Tangible Excellence in a Digital World.',
-        description: 'High-impact print solutions for brochures, magazines, and outdoor advertising.',
-        bannerImage: 'https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=1600',
-        features: [
-            { title: 'Brochure Design', desc: 'Informative and beautifully laid out.', icon: 'FileText' },
-            { title: 'Editorial Design', desc: 'Magazine and catalog layout. ', icon: 'Layout' },
-            { title: 'Large Format', desc: 'Billboards and event signage.', icon: 'Maximize' }
-        ],
-        sections: [
-            {
-                title: 'The Power of Print',
-                content: 'Print media offers a level of permanence and trust that digital often lacks. Our designs leverage typography and layout to create lasting impressions.'
-            }
-        ]
-    },
-    {
-        slug: 'event-management',
-        title: 'Event Management',
-        tagline: 'Memorable Experiences, Flawlessly Executed.',
-        description: 'Strategic planning and creative execution for corporate events, launches, and exhibitions.',
-        bannerImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1600',
-        features: [
-            { title: 'Full Planning', desc: 'Concept to execution management.', icon: 'Calendar' },
-            { title: 'Experiential Marketing', desc: 'Interactive brand experiences.', icon: 'Users' },
-            { title: 'Technical Setup', desc: 'Audio-visual and stage management.', icon: 'Settings' }
-        ],
-        sections: [
-            {
-                title: 'Bringing Brands to Life',
-                content: 'We create immersive environments where your brand can interact directly with its community. Every detail is managed to ensure a seamless experience.'
-            }
-        ]
-    },
-    {
-        slug: 'ecommerce-service',
-        title: 'Ecommerce Service',
-        tagline: 'Optimizing Every Step of the Buyer Journey.',
-        description: 'End-to-end ecommerce solutions including store setup, optimization, and digital marketing.',
-        bannerImage: 'https://images.unsplash.com/photo-1556742049-13e73bb3b27c?auto=format&fit=crop&q=80&w=1600',
-        features: [
-            { title: 'Platform Setup', desc: 'Shopify, WooCommerce, and custom builds.', icon: 'ShoppingCart' },
-            { title: 'CRO', desc: 'Conversion rate optimization strategies.', icon: 'Zap' },
-            { title: 'Logistics Integration', desc: 'Seamless shipping and inventory sync.', icon: 'Truck' }
-        ],
-        sections: [
-            {
-                title: 'Selling Without Borders',
-                content: 'Our ecommerce strategies are built on data. We analyze user behavior to create storefronts that don\'t just look good, but sell efficiently.'
-            }
-        ]
-    },
-    {
-        slug: 'web-development',
+        slug: 'web-dev',
         title: 'Web Development',
-        tagline: 'High-Performance Digital Platforms.',
-        description: 'Cutting-edge websites and applications built for speed, security, and scalability.',
+        tagline: 'Building the Digital Backbone.',
+        description: 'From landing pages to complex enterprise platforms, we build websites that are fast, secure, and optimized for growth.',
         bannerImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600',
         features: [
-            { title: 'Frontend Mastery', desc: 'React, Next.js, and modern UI/UX.', icon: 'Code' },
-            { title: 'Robust Backend', desc: 'Secure and scalable infrastructure.', icon: 'Database' },
-            { title: 'Performance First', desc: 'Lightning-fast load times.', icon: 'FastForward' }
+            { title: 'React & Next.js', desc: 'Modern, blazing fast frontends.', icon: 'Code' },
+            { title: 'Backend Systems', desc: 'Scalable and secure databases.', icon: 'Database' },
+            { title: 'SEO Optimized', desc: 'Rank high right from launch.', icon: 'Zap' }
         ],
-        sections: [
-            {
-                title: 'Technological Superiority',
-                content: 'We build digital products that represent the pinnacle of modern web technology. Our code is clean, our designs are responsive, and our results are measurable.'
-            }
-        ]
+        sections: [{ title: 'Performant Engineering', content: 'We don\'t just write code; we engineer digital experiences. Our websites are built to handle traffic and convert users into customers.' }]
     },
     {
-        slug: 'photography-videography',
-        title: 'Photography & Videography',
-        tagline: 'Visual Content That Captivates.',
-        description: 'Professional media production for brands, products, and corporate storytelling.',
-        bannerImage: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1600',
+        slug: 'software-dev',
+        title: 'Custom Software',
+        tagline: 'Bespoke Solutions for Complex Problems.',
+        description: 'Tailor-made software solutions designed to streamline your business processes and solve unique operational challenges.',
+        bannerImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600',
         features: [
-            { title: 'Product Shoots', desc: 'High-end studio photography.', icon: 'Camera' },
-            { title: 'Corporate Video', desc: 'Interviews, promos, and docs.', icon: 'Video' },
-            { title: 'Aerial Media', desc: 'Drone-based photo and video.', icon: 'Wind' }
+            { title: 'System Architecture', desc: 'Robust planning for long-term growth.', icon: 'Settings' },
+            { title: 'API Integration', desc: 'Connecting your existing tools.', icon: 'Zap' },
+            { title: 'Cloud Solutions', desc: 'Secure hosting and accessibility.', icon: 'Globe' }
         ],
-        sections: [
-            {
-                title: 'Mastering the Frame',
-                content: 'Visuals are the first thing your audience sees. We ensure those visuals are stunning, professional, and on-brand.'
-            }
-        ]
+        sections: [{ title: 'Business Efficiency', content: 'Automate repetitive tasks and gain insights through custom dashboards. We build the tools that empower your team.' }]
     },
     {
-        slug: 'podcast',
-        title: 'Podcast Production',
-        tagline: 'Voice Your Authority.',
-        description: 'Professional audio production, editing, and distribution for branded podcasts.',
-        bannerImage: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=1600',
+        slug: 'digital-marketing',
+        title: 'Digital Marketing',
+        tagline: 'Results-Driven Growth Strategies.',
+        description: 'We help brands grow through data-backed marketing campaigns across social media, search engines, and display networks.',
+        bannerImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',
         features: [
-            { title: 'Audio Engineering', desc: 'Crystal-clear sound quality.', icon: 'Mic' },
-            { title: 'Show Notes & SEO', desc: 'Content that drives listeners.', icon: 'Search' },
-            { title: 'Distribution', desc: 'Spotify, Apple, and beyond.', icon: 'Share2' }
+            { title: 'Social Media Ads', desc: 'Targeted Facebook and IG campaigns.', icon: 'Users' },
+            { title: 'Lead Generation', desc: 'Consistent pipelines for your sales.', icon: 'Target' },
+            { title: 'Analytics', desc: 'Measure every dollar spent.', icon: 'Target' }
         ],
-        sections: [
-            {
-                title: 'Conversing with the World',
-                content: 'Podcasts are a powerful way to build trust and authority. We handle the technical side so you can focus on the conversation.'
-            }
-        ]
+        sections: [{ title: 'The Growth Engine', content: 'Marketing is an investment, not an expense. We ensure your campaigns are optimized to deliver the highest possible ROI.' }]
     },
     {
-        slug: 'content-writing',
-        title: 'Content Writing',
-        tagline: 'Words That Convert.',
-        description: 'Strategic copywriting for blogs, websites, and social media that drives engagement and SEO.',
+        slug: 'seo',
+        title: 'SEO Services',
+        tagline: 'Dominating the Search Results.',
+        description: 'Boost your visibility and organic traffic through advanced search engine optimization techniques.',
+        bannerImage: 'https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&q=80&w=1600',
+        features: [
+            { title: 'Keyword Research', desc: 'Find what your customers search for.', icon: 'Search' },
+            { title: 'Technical SEO', desc: 'Optimize site speed and indexing.', icon: 'Settings' },
+            { title: 'Content Strategy', desc: 'Authoritative articles that rank.', icon: 'PenTool' }
+        ],
+        sections: [{ title: 'Organic Authority', content: 'Appearing on the first page of Google is the ultimate trust signal. We help you climb the rankings and stay there.' }]
+    },
+    {
+        slug: 'openai',
+        title: 'Open AI Solutions',
+        tagline: 'Leveraging Artificial Intelligence.',
+        description: 'Integrate GPT and other cutting-edge AI models into your workflows to automate content and customer service.',
+        bannerImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600',
+        features: [
+            { title: 'AI Automation', desc: 'Reduce manual tasks with GPT.', icon: 'Cpu' },
+            { title: 'Custom Chatbots', desc: '24/7 intelligent customer support.', icon: 'MessageSquare' },
+            { title: 'Model Training', desc: 'Fine-tuning AI for your data.', icon: 'Cpu' }
+        ],
+        sections: [{ title: 'The AI Revolution', content: 'Stay ahead of the competition by adopting AI today. We help you implement smart solutions that save time and money.' }]
+    },
+    {
+        slug: 'branding',
+        title: 'Branding',
+        tagline: 'Visual Identities with Impact.',
+        description: 'We craft comprehensive brand systems that include logos, color palettes, and voice guidelines to make you stand out.',
+        bannerImage: 'https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=1600',
+        features: [
+            { title: 'Logo Design', desc: 'Iconic visuals for your business.', icon: 'Palette' },
+            { title: 'Brand Guidelines', desc: 'Consistency across all platforms.', icon: 'BookOpen' },
+            { title: 'Visual Assets', desc: 'Everything needed for marketing.', icon: 'Layout' }
+        ],
+        sections: [{ title: 'Creating Connections', content: 'A brand is more than a logo—it is an emotional connection. We help you build trust through visual excellence.' }]
+    },
+    {
+        slug: 'content',
+        title: 'Content Creation',
+        tagline: 'Words and Visuals That Convert.',
+        description: 'Strategic content production including blogging, copywriting, and social media assets that drive engagement.',
         bannerImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=1600',
         features: [
-            { title: 'Copywriting', desc: 'Persuasive sales and ad copy.', icon: 'PenTool' },
-            { title: 'SEO Blogging', desc: 'Traffic-driving educational content.', icon: 'Globe' },
-            { title: 'Social Strategy', desc: 'Engaging captions and scripts.', icon: 'MessageSquare' }
+            { title: 'Copywriting', desc: 'Persuasive text for sales.', icon: 'PenTool' },
+            { title: 'Blog Content', desc: 'Educational SEO articles.', icon: 'Globe' },
+            { title: 'Social Media', desc: 'Engaging posts and graphics.', icon: 'Share2' }
         ],
-        sections: [
-            {
-                title: 'The Art of Persuasion',
-                content: 'Great design needs great words. Our writers understand how to balance brand voice with psychological triggers to drive action.'
-            }
-        ]
+        sections: [{ title: 'Authority through Value', content: 'We write content that positions you as a leader in your industry. Every word is crafted to provide value and drive action.' }]
+    },
+    {
+        slug: 'bpo',
+        title: 'BPO Services',
+        tagline: 'Scalable Outsourced Operations.',
+        description: 'Efficiency-driven business process outsourcing to help you focus on your core strengths while we handle the rest.',
+        bannerImage: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1600',
+        features: [
+            { title: 'Customer Support', desc: 'Dedicated 24/7 support teams.', icon: 'Users' },
+            { title: 'Data Entry', desc: 'Fast and accurate data management.', icon: 'Database' },
+            { title: 'Virtual Assistants', desc: 'Executive help on demand.', icon: 'Target' }
+        ],
+        sections: [{ title: 'Operational Scale', content: 'Scale your business without increasing overhead. Our BPO solutions provide the talent you need at a fraction of the cost.' }]
     }
 ];

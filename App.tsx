@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import InfiniteMarquee from './components/InfiniteMarquee';
+import ScrollMarquee from './components/ScrollMarquee'; // New Import
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -19,11 +20,14 @@ const Home: React.FC = () => (
     <InfiniteMarquee />
     <Gallery />
 
+    {/* New Scroll Animation Section */}
+    <ScrollMarquee />
+
     {/* Dynamic CTA Section */}
     <section className="py-24 bg-red-600 dark:bg-red-700 text-white overflow-hidden relative">
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
       <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter uppercase leading-none">
+        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter uppercase">
           {CTA_CONTENT.title.main} <span className="underline decoration-white/30 italic">{CTA_CONTENT.title.highlight}</span>
         </h2>
         <p className="text-xl md:text-2xl text-red-100 max-w-2xl mx-auto mb-10 font-medium">

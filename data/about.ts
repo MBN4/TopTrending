@@ -1,11 +1,11 @@
 export const ABOUT_CONTENT = {
     badge: "Our Story",
     title: {
-        main: "WE DON'T JUST FOLLOW",
-        highlight: "TRENDS",
-        suffix: ", WE CREATE THEM."
+        main: "Your Vision,",
+        highlight: "Our Expertise, ",
+        suffix: "Every Step of the Way"
     },
-    description: "At TopTrendings, we believe in the power of innovation and the impact of being ahead of the curve. Our journey started with a simple vision: to empower businesses with data-driven strategies and unmatched creative excellence.",
+    description: "Xpertdigi began with a simple vision: to make cutting-edge development and marketing services accessible to every business. At XpertDigi, our dedicated team of experts doesn’t just work hard; we work smart, day in and day out, exclusively to make your business a success story. We’re all about promoting your business with top-tier tech solutions and strategies that deliver results and leave a lasting impact.",
     stats: [
         { label: 'Projects Completed', value: 150, suffix: '+', icon: 'Award' },
         { label: 'Happy Clients', value: 100, suffix: '+', icon: 'Users' },
