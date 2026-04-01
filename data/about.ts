@@ -13,10 +13,9 @@ export const ABOUT_CONTENT = {
         { label: 'Innovations', value: 20, suffix: '+', icon: 'Lightbulb' },
     ],
     images: [
-        { url: "https://picsum.photos/seed/about1/400/600", alt: "Work", class: "h-64" },
-        { url: "https://picsum.photos/seed/about2/400/400", alt: "Team", class: "h-48" },
-        { url: "https://picsum.photos/seed/about3/400/400", alt: "Innovation", class: "h-48" },
-        { url: "https://picsum.photos/seed/about4/400/600", alt: "Strategy", class: "h-64" },
+        { url: "/images/about/about1.jpeg", alt: "Achievement Award", class: "h-80" },
+        { url: "/images/about/about2.jpeg", alt: "Ribbon Cutting Ceremony", class: "h-52" },
+        { url: "/images/about/about3.jpeg", alt: "Corporate Event", class: "h-52" },
     ],
     floatingBadge: {
         value: "#1",
