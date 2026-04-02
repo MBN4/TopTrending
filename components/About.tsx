@@ -41,7 +41,7 @@ const AnimatedCounter: React.FC<{ value: number; suffix?: string }> = ({ value, 
 
 const About: React.FC = () => {
     return (
-        <section id="about" className="py-24 relative overflow-hidden bg-zinc-950 transition-colors duration-300">
+        <section id="about" className="py-24 relative overflow-hidden bg-white transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-30">
                 <div className="absolute top-20 left-10 w-96 h-96 bg-red-600/20 rounded-full blur-[140px]"></div>
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/20 rounded-full blur-[140px]"></div>
@@ -58,12 +58,12 @@ const About: React.FC = () => {
                         <span className="inline-block py-1 px-4 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                             {ABOUT_CONTENT.badge}
                         </span>
-                        <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tighter text-white uppercase italic">
+                        <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tighter text-zinc-950 uppercase italic">
                             {ABOUT_CONTENT.title.main} <br />
                             <span className="text-red-600 text-glow-red">{ABOUT_CONTENT.title.highlight}</span><br />
-                            <span className="opacity-80">{ABOUT_CONTENT.title.suffix}</span>
+                            <span className="opacity-60">{ABOUT_CONTENT.title.suffix}</span>
                         </h2>
-                        <p className="text-xl text-gray-400 mb-10 leading-relaxed font-medium max-w-xl">
+                        <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium max-w-xl">
                             {ABOUT_CONTENT.description}
                         </p>
 
@@ -78,7 +78,7 @@ const About: React.FC = () => {
                                     className="flex flex-col relative group"
                                 >
                                     <div className="absolute -left-4 top-0 w-1 h-full bg-red-600/0 group-hover:bg-red-600/50 transition-all duration-300"></div>
-                                    <span className="text-4xl md:text-6xl font-black text-white mb-2 flex items-center gap-2">
+                                    <span className="text-4xl md:text-6xl font-black text-zinc-950 mb-2 flex items-center gap-2">
                                         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                                     </span>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.3em] leading-tight max-w-[120px]">
@@ -88,9 +88,9 @@ const About: React.FC = () => {
                             ))}
                         </div>
 
-                        <LiquidButton className="bg-red-600 !text-white hover:bg-red-700 h-16 px-10 rounded-2xl text-lg font-bold">
+                        {/* <LiquidButton className="bg-red-600 !text-white hover:bg-red-700 h-16 px-10 rounded-2xl text-lg font-bold">
                             Elite Experience
-                        </LiquidButton>
+                        </LiquidButton> */}
                     </motion.div>
 
                     <motion.div
@@ -110,7 +110,7 @@ const About: React.FC = () => {
                                 alt={ABOUT_CONTENT.images[0].alt} 
                                 className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-700 ease-out" 
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-60"></div>
                         </motion.div>
 
                         {/* Secondary Image 1 - Top Left Overlap */}
@@ -148,7 +148,7 @@ const About: React.FC = () => {
                                 duration: 6, 
                                 ease: "easeInOut" 
                             }}
-                            className="absolute -top-6 -right-6 bg-red-600 text-white w-28 h-28 flex items-center justify-center rounded-3xl shadow-[0_0_40px_rgba(239,68,68,0.4)] z-40 border-4 border-white/10 backdrop-blur-md"
+                            className="absolute -top-6 -right-6 bg-red-600 text-white w-28 h-28 flex items-center justify-center rounded-3xl shadow-[0_0_40px_rgba(239,68,68,0.4)] z-40 border-4 border-white backdrop-blur-md"
                         >
                             <div className="text-center">
                                 <p className="text-3xl font-black">{ABOUT_CONTENT.floatingBadge.value}</p>
@@ -157,7 +157,7 @@ const About: React.FC = () => {
                         </motion.div>
 
                         {/* Floating Glass Element */}
-                        <div className="absolute -bottom-10 -left-10 w-24 h-24 glass-dark rounded-full z-0 animate-pulse"></div>
+                        <div className="absolute -bottom-10 -left-10 w-24 h-24 glass rounded-full z-0 animate-pulse"></div>
                     </motion.div>
                 </div>
             </div>
@@ -192,7 +192,7 @@ const About: React.FC = () => {
                                 <div className="flex items-center gap-4 mb-6">
                                     <span 
                                         className="text-5xl font-bold text-transparent select-none opacity-40 group-hover:opacity-100 transition-opacity duration-300"
-                                        style={{ WebkitTextStroke: '1px #e5e7eb' }}
+                                        style={{ WebkitTextStroke: '1px #18181b' }}
                                     >
                                         {number}
                                     </span>
