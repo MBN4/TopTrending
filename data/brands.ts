@@ -20,4 +20,5 @@ export const BRANDS: Brand[] = [
     { id: 17, name: 'Brand 17', logo: '/assets/images/logo-17.png', scale: 4 },
     { id: 18, name: 'Brand 18', logo: '/assets/images/logo-18.png', scale: 4 },
     { id: 19, name: 'Brand 19', logo: '/assets/images/logo-19.png', scale: 4 },
+    { id: 20, name: 'Tara', logo: '/assets/images/tara_logo.png', scale: 1 },
 ];
