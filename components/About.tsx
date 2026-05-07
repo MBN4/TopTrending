@@ -40,6 +40,33 @@ const AnimatedCounter: React.FC<{ value: number; suffix?: string }> = ({ value, 
 };
 
 const About: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+
+    const handleNext = React.useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % ABOUT_CONTENT.images.length);
+    }, []);
+
+    const handlePrev = React.useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + ABOUT_CONTENT.images.length) % ABOUT_CONTENT.images.length);
+    }, []);
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            handleNext();
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [handleNext, currentIndex]);
+
+    const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        if (x < rect.width / 2) {
+            handlePrev();
+        } else {
+            handleNext();
+        }
+    };
+
     return (
         <section id="about" className="py-24 relative overflow-hidden bg-white transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-30">
@@ -100,43 +127,50 @@ const About: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="relative h-[600px]"
                     >
-                        {/* Main Image - Central & Large */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="absolute top-0 right-0 w-[85%] h-[450px] rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 z-10 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[0].url} 
-                                alt={ABOUT_CONTENT.images[0].alt} 
-                                className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-700 ease-out" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-60"></div>
-                        </motion.div>
+                        {/* Dynamic Infinite Card Stack */}
+                        <div className="relative w-full h-[500px] flex items-center justify-center perspective-[1500px]">
+                            {ABOUT_CONTENT.images.map((img, idx) => {
+                                // Calculate relative position in the stack
+                                let relativeIndex = idx - currentIndex;
+                                if (relativeIndex < 0) relativeIndex += ABOUT_CONTENT.images.length;
 
-                        {/* Secondary Image 1 - Top Left Overlap */}
-                        <motion.div
-                            whileHover={{ y: -10, scale: 1.05 }}
-                            className="absolute top-20 -left-10 w-1/2 h-56 rounded-[30px] overflow-hidden shadow-2xl border border-white/10 z-20 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[1].url} 
-                                alt={ABOUT_CONTENT.images[1].alt} 
-                                className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 ease-out" 
-                            />
-                        </motion.div>
+                                return (
+                                    <motion.div
+                                        key={img.url}
+                                        initial={false}
+                                        animate={{
+                                            zIndex: ABOUT_CONTENT.images.length - relativeIndex,
+                                            x: relativeIndex * 40,
+                                            y: relativeIndex * -40,
+                                            rotateY: relativeIndex * -15,
+                                            rotateZ: relativeIndex * 2,
+                                            scale: 1 - relativeIndex * 0.05,
+                                            opacity: 1 - relativeIndex * 0.2,
+                                        }}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease: [0.23, 1, 0.32, 1], // Custom cubic-bezier for premium feel
+                                        }}
+                                        className="absolute w-[85%] h-[450px] rounded-[40px] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border-4 border-white/80 group cursor-pointer backdrop-blur-sm"
+                                        onClick={relativeIndex === 0 ? handleCardClick : undefined}
+                                    >
+                                        <img 
+                                            src={img.url} 
+                                            alt={img.alt} 
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                                        />
+                                        {/* Depth Overlay */}
+                                        <div 
+                                            className="absolute inset-0 bg-black/20 transition-opacity duration-500"
+                                            style={{ opacity: relativeIndex * 0.3 }}
+                                        />
+                                        {/* Gradient Shine */}
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
 
-                        {/* Secondary Image 2 - Bottom Right Offset */}
-                        <motion.div
-                            whileHover={{ y: 10, scale: 1.05 }}
-                            className="absolute bottom-0 right-10 w-3/5 h-64 rounded-[30px] overflow-hidden shadow-2xl border border-white/10 z-30 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[2].url} 
-                                alt={ABOUT_CONTENT.images[2].alt} 
-                                className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 ease-out" 
-                            />
-                            <div className="absolute inset-0 bg-red-600/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
-                        </motion.div>
 
                         <motion.div
                             animate={{ 
