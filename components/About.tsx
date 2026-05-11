@@ -93,72 +93,85 @@ const About: React.FC = () => {
                         </LiquidButton> */}
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}
-                        className="relative h-[600px]"
-                    >
-                        {/* Main Image - Central & Large */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="absolute top-0 right-0 w-[85%] h-[450px] rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 z-10 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[0].url} 
-                                alt={ABOUT_CONTENT.images[0].alt} 
-                                className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-700 ease-out" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-60"></div>
-                        </motion.div>
+                    <div className="relative h-[650px] md:h-[800px]">
+                        {/* Decorative background element */}
+                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-red-600/10 rounded-full blur-3xl animate-pulse -z-10"></div>
+                        
+                        <div className="grid grid-cols-2 grid-rows-3 gap-6 h-full">
+                            {/* Main Large Image - Top (Wide) */}
+                            <motion.div
+                                initial={{ opacity: 0, y: -50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="col-span-2 row-span-2 relative group rounded-[40px] overflow-hidden shadow-2xl border border-zinc-200"
+                            >
+                                <motion.img 
+                                    whileHover={{ scale: 1.03 }}
+                                    transition={{ duration: 0.8 }}
+                                    src={ABOUT_CONTENT.images[0].url} 
+                                    alt={ABOUT_CONTENT.images[0].alt} 
+                                    className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" 
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                
+                                {/* Badge integrated on the main image */}
+                                <motion.div
+                                    animate={{ 
+                                        y: [0, -15, 0],
+                                        rotate: [0, 5, 0]
+                                    }}
+                                    transition={{ 
+                                        repeat: Infinity, 
+                                        duration: 6, 
+                                        ease: "easeInOut" 
+                                    }}
+                                    className="absolute top-8 right-8 bg-red-600 text-white w-24 h-24 flex items-center justify-center rounded-3xl shadow-2xl z-20 border-4 border-white backdrop-blur-md"
+                                >
+                                    <div className="text-center">
+                                        <p className="text-3xl font-black">{ABOUT_CONTENT.floatingBadge.value}</p>
+                                        <p className="text-[10px] font-black uppercase tracking-tighter leading-none whitespace-pre-line">
+                                            {ABOUT_CONTENT.floatingBadge.label.split(' ').join('\n')}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </motion.div>
 
-                        {/* Secondary Image 1 - Top Left Overlap */}
-                        <motion.div
-                            whileHover={{ y: -10, scale: 1.05 }}
-                            className="absolute top-20 -left-10 w-1/2 h-56 rounded-[30px] overflow-hidden shadow-2xl border border-white/10 z-20 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[1].url} 
-                                alt={ABOUT_CONTENT.images[1].alt} 
-                                className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 ease-out" 
-                            />
-                        </motion.div>
-
-                        {/* Secondary Image 2 - Bottom Right Offset */}
-                        <motion.div
-                            whileHover={{ y: 10, scale: 1.05 }}
-                            className="absolute bottom-0 right-10 w-3/5 h-64 rounded-[30px] overflow-hidden shadow-2xl border border-white/10 z-30 group"
-                        >
-                            <img 
-                                src={ABOUT_CONTENT.images[2].url} 
-                                alt={ABOUT_CONTENT.images[2].alt} 
-                                className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 ease-out" 
-                            />
-                            <div className="absolute inset-0 bg-red-600/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
-                        </motion.div>
-
-                        <motion.div
-                            animate={{ 
-                                y: [0, -20, 0],
-                                rotate: [0, 5, 0]
-                            }}
-                            transition={{ 
-                                repeat: Infinity, 
-                                duration: 6, 
-                                ease: "easeInOut" 
-                            }}
-                            className="absolute -top-6 -right-6 bg-red-600 text-white w-28 h-28 flex items-center justify-center rounded-3xl shadow-[0_0_40px_rgba(239,68,68,0.4)] z-40 border-4 border-white backdrop-blur-md"
-                        >
-                            <div className="text-center">
-                                <p className="text-3xl font-black">{ABOUT_CONTENT.floatingBadge.value}</p>
-                                <p className="text-[10px] font-black uppercase tracking-tighter leading-none">{ABOUT_CONTENT.floatingBadge.label.split(' ').join('\n')}</p>
-                            </div>
-                        </motion.div>
-
-                        {/* Floating Glass Element */}
-                        <div className="absolute -bottom-10 -left-10 w-24 h-24 glass rounded-full z-0 animate-pulse"></div>
-                    </motion.div>
+                            {/* Secondary Image 1 - Bottom Left */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="col-span-1 row-span-1 relative group rounded-[30px] overflow-hidden shadow-xl border border-zinc-200"
+                            >
+                                <motion.img 
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.8 }}
+                                    src={ABOUT_CONTENT.images[1].url} 
+                                    alt={ABOUT_CONTENT.images[1].alt} 
+                                    className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" 
+                                />
+                            </motion.div>
+                            
+                            {/* Secondary Image 2 - Bottom Right */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                className="col-span-1 row-span-1 relative group rounded-[30px] overflow-hidden shadow-xl border border-zinc-200"
+                            >
+                                <motion.img 
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.8 }}
+                                    src={ABOUT_CONTENT.images[2].url} 
+                                    alt={ABOUT_CONTENT.images[2].alt} 
+                                    className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" 
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
