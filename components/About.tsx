@@ -43,35 +43,7 @@ const AnimatedCounter: React.FC<{ value: number; suffix?: string }> = ({
 };
 
 const About: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  const handleNext = React.useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % ABOUT_CONTENT.images.length);
-  }, []);
-
-  const handlePrev = React.useCallback(() => {
-    setCurrentIndex(
-      (prev) =>
-        (prev - 1 + ABOUT_CONTENT.images.length) % ABOUT_CONTENT.images.length,
-    );
-  }, []);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [handleNext, currentIndex]);
-
-  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    if (x < rect.width / 2) {
-      handlePrev();
-    } else {
-      handleNext();
-    }
-  };
 
   return (
     <section
@@ -133,55 +105,71 @@ const About: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[750px]"
+            className="relative h-[800px]"
           >
-            {/* Dynamic Infinite Card Stack */}
-            <div className="relative w-full h-[850px] flex items-center justify-center perspective-[1500px]">
-              {ABOUT_CONTENT.images.map((img, idx) => {
-                // Calculate relative position in the stack
-                let relativeIndex = idx - currentIndex;
-                if (relativeIndex < 0)
-                  relativeIndex += ABOUT_CONTENT.images.length;
+            {/* 2-1 Grid Layout for Images */}
+            <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full perspective-[2000px]">
+              {/* Image 1: Top Left (Using 3rd Image Data) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  opacity: { duration: 0.5 },
+                  y: { duration: 0.8 }
+                }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="relative rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-4 border-white group transition-all duration-300"
+              >
+                <img
+                  src={ABOUT_CONTENT.images[2].url}
+                  alt={ABOUT_CONTENT.images[2].alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
 
-                return (
-                  <motion.div
-                    key={img.url}
-                    initial={false}
-                    animate={{
-                      zIndex: ABOUT_CONTENT.images.length - relativeIndex,
-                      x: relativeIndex * 40,
-                      y: relativeIndex * -40,
-                      rotateY: relativeIndex * -15,
-                      rotateZ: relativeIndex * 2,
-                      scale: 1 - relativeIndex * 0.05,
-                      opacity: 1 - relativeIndex * 0.2,
-                    }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.23, 1, 0.32, 1], // Custom cubic-bezier for premium feel
-                    }}
-                    className="absolute w-[90%] h-[800px] rounded-[40px] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border-4 border-white/80 group cursor-pointer backdrop-blur-sm"
-                    onClick={relativeIndex === 0 ? handleCardClick : undefined}
-                  >
-                    <img
-                      src={img.url}
-                      alt={img.alt}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Depth Overlay */}
-                    <div
-                      className="absolute inset-0 bg-black/20 transition-opacity duration-500"
-                      style={{ opacity: relativeIndex * 0.3 }}
-                    />
-                    {/* Gradient Shine */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </motion.div>
-                );
-              })}
+              {/* Image 2: Top Right */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  opacity: { duration: 0.5, delay: 0.2 },
+                  y: { duration: 0.8, delay: 0.2 }
+                }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="relative rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-4 border-white group transition-all duration-300"
+              >
+                <img
+                  src={ABOUT_CONTENT.images[1].url}
+                  alt={ABOUT_CONTENT.images[1].alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+
+              {/* Image 3: Bottom Spanning Both (Using 1st Image Data) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  opacity: { duration: 0.5, delay: 0.4 },
+                  y: { duration: 0.8, delay: 0.4 }
+                }}
+                whileHover={{ y: -5, scale: 1.01 }}
+                className="relative col-span-2 rounded-[40px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.25)] border-4 border-white group transition-all duration-300"
+              >
+                <img
+                  src={ABOUT_CONTENT.images[0].url}
+                  alt={ABOUT_CONTENT.images[0].alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             </div>
 
             <motion.div
@@ -194,20 +182,21 @@ const About: React.FC = () => {
                 duration: 6,
                 ease: "easeInOut",
               }}
-              className="absolute -top-6 -right-6 bg-red-600 text-white w-28 h-28 flex items-center justify-center rounded-3xl shadow-[0_0_40px_rgba(239,68,68,0.4)] z-40 border-4 border-white backdrop-blur-md"
+              className="absolute -top-10 -right-10 bg-red-600 text-white w-32 h-32 flex items-center justify-center rounded-[40px] shadow-[0_20px_50px_rgba(239,68,68,0.4)] z-40 border-4 border-white backdrop-blur-md"
             >
               <div className="text-center">
-                <p className="text-3xl font-black">
+                <p className="text-4xl font-black">
                   {ABOUT_CONTENT.floatingBadge.value}
                 </p>
-                <p className="text-[10px] font-black uppercase tracking-tighter leading-none">
+                <p className="text-[11px] font-black uppercase tracking-wider leading-none mt-1">
                   {ABOUT_CONTENT.floatingBadge.label.split(" ").join("\n")}
                 </p>
               </div>
             </motion.div>
 
-            {/* Floating Glass Element */}
-            <div className="absolute -bottom-10 -left-10 w-24 h-24 glass rounded-full z-0 animate-pulse"></div>
+            {/* Decorative Elements */}
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-red-600/10 rounded-full blur-3xl z-0 animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-zinc-200/50 rounded-full -z-10 pointer-events-none"></div>
           </motion.div>
         </div>
       </div>
