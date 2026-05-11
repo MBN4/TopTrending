@@ -8,7 +8,7 @@ export const ABOUT_CONTENT = {
     description: "Top Trending began with a simple vision: to make cutting-edge development and marketing services accessible to every business. At Top Trending, our dedicated team of experts doesn’t just work hard; we work smart, day in and day out, exclusively to make your business a success story. We’re all about promoting your business with top-tier tech solutions and strategies that deliver results and leave a lasting impact.",
     stats: [
         { label: 'Projects Completed', value: 150, suffix: '+', icon: 'Award' },
-        { label: 'Happy Clients', value: 100, suffix: '+', icon: 'Users' },
+        { label: 'Happy Clients', value: 50, suffix: '+', icon: 'Users' },
         { label: 'Years Experience', value: 2, suffix: '+', icon: 'Target' },
         { label: 'Innovations', value: 20, suffix: '+', icon: 'Lightbulb' },
     ],
